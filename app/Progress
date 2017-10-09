@@ -1,0 +1,31 @@
+进度：
+    1.添加PopupWindowUtil (2017/07/13 01:37)
+    2.添加BaseActivity (有待继续拓展)
+    3.添加自定义ProgressDialog,使其兼容自己的布局
+    4.添加RecyclerView的用法(有待优化，使其更多兼容；另将适配器写几个通用版本，方便日后快速开发)
+
+
+经验值：
+    1.自定义ID
+        版本17以上： titleView.setId(View.generateViewId());
+        版本17以下： titleView.setId(R.id.titleId);
+            res/values/ 创建ids.xml
+            <?xml version="1.0" encoding="utf-8"?>
+            <resources>
+                <item name="titleId" type="id" />
+            </resources>
+
+    2.PopupWindow
+        装载到PopupWindow中的View,最外层的layout宽高设置无效
+        若是ListView设置相对布局中的与底部对齐，此时会出现PopupWindow是全屏高，相当于子布局控制了大小
+        需要全屏显示阴影需要设置PopupWindow构造时设置LayoutParams.MATCH_PARENT，另更改
+
+    3.ProgressBar
+        由于其Style定义了最大高度和最小高度等同，所以设置高度无效，需要改变其大小，需要改变自定义一个Style替换
+        设置进度条圆角，需要用到Scale属性
+                <scale android:scaleWidth="100%"
+                    android:drawable="@drawable/shape_1"   />
+        另自定义一个改变默认Dialog布局的设置，更为方便设置Dialog控件布局
+
+    4.RecyclerView
+        设置中间分割线时，不采用网上所说的改变Style，而是直接根据ID改变Drawable，方便多变，更加灵活

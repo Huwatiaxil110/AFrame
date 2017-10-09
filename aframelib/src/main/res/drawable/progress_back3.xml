@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="2dp" />
+            <solid android:color="#e0e0e0"/>
+        </shape>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+        <scale android:scaleWidth="100%">
+            <shape>
+                <corners android:radius="2dp"/>
+                <solid android:color="#909090"/>
+            </shape>
+        </scale>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <!--利用.9也没有问题，但这个scale不能改变 -->
+        <!--<scale android:scaleWidth="100%"-->
+            <!--android:drawable="@drawable/shape_1"   />-->
+
+        <scale android:scaleWidth="100%">
+            <shape>
+                <corners android:radius="2dp"/>
+                <solid android:color="#ff0000"/>
+            </shape>
+        </scale>
+
+    </item>
+</layer-list>

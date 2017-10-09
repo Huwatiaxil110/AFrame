@@ -1,0 +1,13 @@
+<resources>
+    <!--CPButton所需要-->
+    <dimen name="cpb_stroke_width">4dp</dimen>
+
+    <!--WheelView需要-->
+    <dimen name="WheelItemSpace">8dp</dimen>
+    <dimen name="WheelPadding1x">8dp</dimen>
+    <dimen name="WheelPadding2x">16dp</dimen>
+    <dimen name="WheelTextSize">24sp</dimen>
+    <dimen name="WheelLabelTextSize">12sp</dimen>
+    <dimen name="TextSizeLarge">40dp</dimen>
+    <dimen name="ItemSpaceLarge">15dp</dimen>
+</resources>
