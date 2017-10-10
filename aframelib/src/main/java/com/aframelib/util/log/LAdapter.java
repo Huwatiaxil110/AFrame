@@ -5,10 +5,12 @@ package com.aframelib.util.log;
  */
 
 public class LAdapter {
+    private String tag;
     private boolean isDebug;
     private boolean isNeedOtherInfo;
 
-    public LAdapter(boolean isDebug, boolean isNeedOtherInfo) {
+    public LAdapter(String tag, boolean isDebug, boolean isNeedOtherInfo) {
+        this.tag = tag;
         this.isDebug = isDebug;
         this.isNeedOtherInfo = isNeedOtherInfo;
     }
@@ -19,5 +21,9 @@ public class LAdapter {
 
     public boolean isNeedOtherInfo() {
         return isNeedOtherInfo;
+    }
+
+    public String getTag() {
+        return tag;
     }
 }

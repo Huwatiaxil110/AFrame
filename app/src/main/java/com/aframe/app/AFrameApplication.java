@@ -20,6 +20,6 @@ public class AFrameApplication extends Application{
     }
 
     private void initLog(){
-        L.initLAdapter(new LAdapter(BuildConfig.DEBUG, true));
+        L.initLAdapter(new LAdapter("TAG", BuildConfig.DEBUG, true));
     }
 }

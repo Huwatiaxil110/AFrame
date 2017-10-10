@@ -17,18 +17,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".activity.FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme" />
-
-        <activity
-            android:name=".activity.ScrollingActivity"
+            android:name=".activity.material.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.material.ButtonNavigationActivity"
+            android:label="@string/title_activity_main"/>
+        <activity
+            android:name=".activity.material.MDLaucherActivity"/>
     </application>
 
 </manifest>
