@@ -1,7 +1,10 @@
 package com.aframe.app;
 
 import android.app.Application;
-import com.aframelib.util.L;
+
+import com.aframe.BuildConfig;
+import com.aframelib.util.log.L;
+import com.aframelib.util.log.LAdapter;
 
 /**
  * Created by zc on 2017/10/9.
@@ -17,6 +20,6 @@ public class AFrameApplication extends Application{
     }
 
     private void initLog(){
-        L.initDebug(com.aframe.BuildConfig.DEBUG);
+        L.initLAdapter(new LAdapter(BuildConfig.DEBUG, true));
     }
 }

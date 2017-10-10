@@ -8,7 +8,7 @@ import android.widget.ListView;
 
 import com.aframe.R;
 import com.aframe.adapter.LaucherAdapter;
-import com.aframelib.util.L;
+import com.aframelib.util.log.L;
 
 import java.util.ArrayList;
 

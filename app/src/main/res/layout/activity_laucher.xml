@@ -10,8 +10,7 @@
         android:id="@+id/lv_laucher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
+        android:padding="8dp"
         android:scrollbars="none" />
 
 </LinearLayout>

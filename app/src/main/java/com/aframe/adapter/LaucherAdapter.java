@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 
 public class LaucherAdapter extends BaseAdapter{
-    ArrayList<String> contents;
-    Context mContext;
+    private ArrayList<String> contents;
+    private Context mContext;
 
     public LaucherAdapter(ArrayList<String> contents, Context mContext) {
         if(contents == null){
@@ -49,7 +49,7 @@ public class LaucherAdapter extends BaseAdapter{
             view = LayoutInflater.from(mContext).inflate(R.layout.item_laucher, null);
 
             mViewHolder = new LaucherViewHolder();
-            mViewHolder.tvContent = view.findViewById(R.id.tv_laucher_item);
+            mViewHolder.tvContent = (TextView) view.findViewById(R.id.tv_laucher_item);
             view.setTag(mViewHolder);
         }else{
             mViewHolder = (LaucherViewHolder) view.getTag();
@@ -59,12 +59,7 @@ public class LaucherAdapter extends BaseAdapter{
         return view;
     }
 
-    @Override
-    public CharSequence[] getAutofillOptions() {
-        return new CharSequence[0];
-    }
-
-    static class LaucherViewHolder{
+    private static class LaucherViewHolder{
         TextView tvContent;
     }
 }
