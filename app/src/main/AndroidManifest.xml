@@ -13,19 +13,21 @@
         <activity android:name=".activity.LaucherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.material.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.material.ButtonNavigationActivity"
-            android:label="@string/title_activity_main"/>
+            android:label="@string/title_button_navigation"/>
         <activity
             android:name=".activity.material.MDLaucherActivity"/>
+        <activity
+            android:name=".activity.toast.ToastActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package com.aframe.activity.toast;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,11 +36,8 @@ public class ToastActivity extends AppCompatActivity{
     class ListClickListener implements AdapterView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-            Intent intent = null;
+            position = position + 1;    //偷个懒，不想改序号
             switch(position){
-                case 0:
-                    CustomToast.makeText(ToastActivity.this, mItems.get(position), 7).show();
-                    break;
                 case 1:
                     T.showWhiteToastServen(ToastActivity.this, mItems.get(position), false);
                     break;
@@ -93,8 +89,6 @@ public class ToastActivity extends AppCompatActivity{
 
     private void initDatas(){
         mItems = new ArrayList<>();
-        mItems.add("窗口Toast(7s)");
-
         mItems.add("长Toast（白色/7s）");
         mItems.add("长Toast（默认色/7s）");
         mItems.add("长Toast（白色/7s/中间）");

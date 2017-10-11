@@ -1,6 +1,7 @@
 package com.aframe.activity;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ListView;
 
 import com.aframe.R;
 import com.aframe.activity.material.MDLaucherActivity;
+import com.aframe.activity.toast.ToastActivity;
 import com.aframe.adapter.LaucherAdapter;
 import com.aframelib.util.log.L;
 import com.aframelib.util.toast.T;
@@ -18,7 +20,8 @@ import java.util.ArrayList;
 public class LaucherActivity extends AppCompatActivity {
     private static final ArrayList<String> DESCRIPTIONS = new ArrayList<>();
     private static final int PRINT_LOG = 0;
-    private static final int METARIAL_DESIGN = 1;
+    private static final int TOAST = 1;
+    private static final int METARIAL_DESIGN = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +42,26 @@ public class LaucherActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 L.e(DESCRIPTIONS.get(i));
                 switch (i){
-                    case PRINT_LOG:     //测试打印工具
+                    case PRINT_LOG:             //测试打印工具
                         T.showToast(LaucherActivity.this, getDescription());
                         break;
-                    case METARIAL_DESIGN:     //MD风格：ScrollingActivity
+                    case TOAST:                 //测试Toast工具
+                        startActivity(new Intent(LaucherActivity.this, ToastActivity.class));
+                        break;
+                    case METARIAL_DESIGN:       //MD风格：ScrollingActivity
                         startActivity(new Intent(LaucherActivity.this, MDLaucherActivity.class));
                         break;
                 }
             }
         });
+
     }
 
     private void initDatas(){
-        DESCRIPTIONS.add("测试打印工具");
+        DESCRIPTIONS.clear();
+
+        DESCRIPTIONS.add("测试Log工具");
+        DESCRIPTIONS.add("测试Toast工具");
         DESCRIPTIONS.add("Metarial Design风格");
     }
 
@@ -62,7 +72,6 @@ public class LaucherActivity extends AppCompatActivity {
         String[] infos = new String[]{ "", "", "" };
         StackTraceElement[] elements = Thread.currentThread().getStackTrace();
         if (elements.length >= 5) {
-//            infos[0] = elements[4].getClassName();      //com.aframe.activity.LaucherActivity$1
             infos[0] = elements[4].getClassName().substring(elements[4].getClassName().lastIndexOf(".") + 1, elements[4].getClassName().length()-2);
             infos[1] = elements[4].getMethodName();
             infos[2] = "line = " + elements[4].getLineNumber();

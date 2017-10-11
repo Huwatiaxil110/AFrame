@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 
 public class MDLaucherActivity extends AppCompatActivity {
-    private static final ArrayList<String> DESCRIPTIONS = new ArrayList<>();
+    private ArrayList<String> DESCRIPTIONS = new ArrayList<>();
     private static final int MD_SCROLLING = 0;
     private static final int MD_BUTTON_NAVIGATION = 1;
 

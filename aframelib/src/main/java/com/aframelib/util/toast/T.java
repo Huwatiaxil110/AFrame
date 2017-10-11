@@ -31,7 +31,7 @@ public class T {
 
     public static void showToastShort(Context mContext, String content){
         if(ISDEBUG){
-            Toast.makeText(mContext, content, Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, content, Toast.LENGTH_SHORT).show();
         }
     }
 
