@@ -1,7 +1,6 @@
-package com.aframe.activity;
+package com.aframe.activity.laucher;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.aframe.R;
+import com.aframe.activity.rxjava.RxJavaActivity;
 import com.aframe.activity.material.MDLaucherActivity;
 import com.aframe.activity.toast.ToastActivity;
 import com.aframe.adapter.LaucherAdapter;
@@ -19,9 +19,10 @@ import java.util.ArrayList;
 
 public class LaucherActivity extends AppCompatActivity {
     private static final ArrayList<String> DESCRIPTIONS = new ArrayList<>();
-    private static final int PRINT_LOG = 0;
-    private static final int TOAST = 1;
-    private static final int METARIAL_DESIGN = 2;
+    private static final int CODE_LOG = 0;
+    private static final int CODE_TOAST = 1;
+    private static final int CODE_METARIAL_DESIGN = 2;
+    private static final int CODE_RXJAVA = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +43,19 @@ public class LaucherActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 L.e(DESCRIPTIONS.get(i));
                 switch (i){
-                    case PRINT_LOG:             //测试打印工具
+                    case CODE_LOG:             //测试打印工具
                         T.showToast(LaucherActivity.this, getDescription());
                         break;
-                    case TOAST:                 //测试Toast工具
+                    case CODE_TOAST:                 //测试Toast工具
                         startActivity(new Intent(LaucherActivity.this, ToastActivity.class));
                         break;
-                    case METARIAL_DESIGN:       //MD风格：ScrollingActivity
+                    case CODE_METARIAL_DESIGN:       //MD风格：ScrollingActivity
                         startActivity(new Intent(LaucherActivity.this, MDLaucherActivity.class));
                         break;
+                    case CODE_RXJAVA:
+                        startActivity(new Intent(LaucherActivity.this, RxJavaActivity.class));
+                        break;
+
                 }
             }
         });
@@ -63,6 +68,7 @@ public class LaucherActivity extends AppCompatActivity {
         DESCRIPTIONS.add("测试Log工具");
         DESCRIPTIONS.add("测试Toast工具");
         DESCRIPTIONS.add("Metarial Design风格");
+        DESCRIPTIONS.add("RxJava用例");
     }
 
     /**

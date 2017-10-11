@@ -49,7 +49,7 @@ public class LaucherAdapter extends BaseAdapter{
             view = LayoutInflater.from(mContext).inflate(R.layout.item_laucher, null);
 
             mViewHolder = new LaucherViewHolder();
-            mViewHolder.tvContent = (TextView) view.findViewById(R.id.tv_laucher_item);
+            mViewHolder.tvContent = (TextView) view.findViewById(R.id.laucher_tv_item);
             view.setTag(mViewHolder);
         }else{
             mViewHolder = (LaucherViewHolder) view.getTag();
