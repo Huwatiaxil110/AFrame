@@ -14,7 +14,6 @@ import com.aframelib.view.decoration.LinearLayoutItemDecoration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
