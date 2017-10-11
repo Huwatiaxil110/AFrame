@@ -141,7 +141,7 @@ public class RxJavaActivity extends AppCompatActivity{
         Observable<String> observable = Observable.fromArray(METHODS);
         // TODO: 2017/10/11 这个网址是RxJava的一些简单使用方式 
 //        http://www.jianshu.com/p/d149043d103a
-        // TODO: 2017/10/11 此处需要检查是否支持集合，如果支持，为什么报有异常 
+        // TODO: 2017/10/11 此处需要检查是否支持集合，如果支持，为什么报有异常 Unchecked generics array creation for varargs parameter
 //        Observable.fromArray(mItems);
         observable.subscribe(getConsumer());
         observable.subscribe(getObserver());
