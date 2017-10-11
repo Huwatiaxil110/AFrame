@@ -70,4 +70,9 @@ public class RxJavaAdapter extends RecyclerView.Adapter<RxJavaAdapter.RxJavaHold
     public interface ItemCallback{
         void onItemClick(int position);
     }
+
+    public void updateRxJavaAdapter(ArrayList<String> mList){
+        this.mList = mList;
+        notifyDataSetChanged();
+    }
 }

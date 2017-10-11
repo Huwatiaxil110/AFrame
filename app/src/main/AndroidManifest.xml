@@ -24,10 +24,15 @@
         <activity
             android:name=".activity.material.ButtonNavigationActivity"
             android:label="@string/title_button_navigation"/>
-        <activity android:name=".activity.material.MDLaucherActivity"/>
-        <activity android:name=".activity.toast.ToastActivity"/>
-        <activity android:name=".activity.rxjava.RxJavaActivity"/>
-
+        <activity
+            android:name=".activity.material.MDLaucherActivity"
+            android:label="@string/title_md_laucher"/>
+        <activity
+            android:name=".activity.toast.ToastActivity"
+            android:label="@string/title_toast"/>
+        <activity
+            android:name=".activity.rxjava.RxJavaActivity"
+            android:label="@string/title_rxjava_usage"/>
 
     </application>
 
