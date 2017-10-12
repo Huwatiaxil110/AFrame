@@ -144,7 +144,12 @@ public class L{
         StackTraceElement[] elements = Thread.currentThread().getStackTrace();
         if (elements.length >= 5) {
 //            infos[0] = elements[4].getClassName();      //com.aframe.activity.LaucherActivity$1
-            infos[0] = elements[4].getClassName().substring(elements[4].getClassName().lastIndexOf(".") + 1, elements[4].getClassName().indexOf("$", 0));
+            String name = elements[4].getClassName();
+            if(name.contains("$")){
+                infos[0] = name.substring(name.lastIndexOf(".") + 1, name.indexOf("$", 0));
+            }else{
+                infos[0] = name.substring(name.lastIndexOf(".") + 1);
+            }
             infos[1] = elements[4].getMethodName();
             infos[2] = "line = " + elements[4].getLineNumber();
         } else {
