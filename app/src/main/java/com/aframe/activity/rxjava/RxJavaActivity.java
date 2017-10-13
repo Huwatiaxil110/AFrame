@@ -10,25 +10,30 @@ import android.support.v7.widget.RecyclerView;
 import com.aframe.R;
 import com.aframe.adapter.RxJavaAdapter;
 import com.aframelib.util.log.L;
+import com.aframelib.util.toast.T;
 import com.aframelib.view.decoration.LinearLayoutItemDecoration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.Callable;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by zc on 2017/10/11.
  */
 
 public class RxJavaActivity extends AppCompatActivity{
-    private static final String[] METHODS = {"Create", "Just", "From Iterable", "From Array"};
+    private static final String[] METHODS = {"Create", "Just", "From Iterable", "From Array", "Defer"};
     RecyclerView rvShow;
     RxJavaAdapter rvAdapter;
     ArrayList<String> mItems;
@@ -38,6 +43,7 @@ public class RxJavaActivity extends AppCompatActivity{
     private static final int CODE_JUST = 1;
     private static final int CODE_FROM_ITERABLE = 2;
     private static final int CODE_FROM_ARRAY = 3;
+    private static final int CODE_DEFER = 4;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,6 +75,9 @@ public class RxJavaActivity extends AppCompatActivity{
                     break;
                 case CODE_FROM_ARRAY:
                     usageArray();
+                    break;
+                case CODE_DEFER:
+                    usageDefer();
                     break;
             }
         }
@@ -136,14 +145,51 @@ public class RxJavaActivity extends AppCompatActivity{
         observable.subscribe(getObserver());
     }
 
+    /**
+     * fromArray用法
+     * 标准参数放 数组
+     */
     private void usageArray(){
         Observable<String> observable = Observable.fromArray(METHODS);
-        // TODO: 2017/10/11 这个网址是RxJava的一些简单使用方式 
-//        http://www.jianshu.com/p/d149043d103a
-        // TODO: 2017/10/11 此处需要检查是否支持集合，如果支持，为什么报有异常 Unchecked generics array creation for varargs parameter
-//        Observable.fromArray(mItems);
-        observable.subscribe(getConsumer());
+//        // TODO: 2017/10/11 这个网址是RxJava的一些简单使用方式
+//        // http://www.jianshu.com/p/d149043d103a
+//        observable.subscribe(getConsumer());
         observable.subscribe(getObserver());
+    }
+
+    private void usageDefer(){
+        Observable<String> observable = Observable.defer(new Callable<ObservableSource<String>>() {
+            @Override
+            public ObservableSource<String> call() throws Exception {
+                Thread.sleep(5000);
+                return Observable.just("今日乐 不可忘", "乐未央 为乐常苦迟", "岁月逝 忽若飞", "何为自苦 使我心悲");
+            }
+        });
+
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+                L.e("");
+            }
+
+            @Override
+            public void onNext(@NonNull String s) {
+                L.e(false, "--------------------------------------------------------------------");
+                L.e(false, s);
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+                L.e("");
+            }
+
+            @Override
+            public void onComplete() {
+                L.e("");
+            }
+        });
     }
 
     private Observer<String> getObserver(){
@@ -201,7 +247,6 @@ public class RxJavaActivity extends AppCompatActivity{
         rvShow.addItemDecoration(mItemDecoration2);
         rvShow.setItemAnimator(new DefaultItemAnimator());
     }
-
 }
 
 

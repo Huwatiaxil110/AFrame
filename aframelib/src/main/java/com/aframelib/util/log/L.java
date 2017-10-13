@@ -53,6 +53,9 @@ public class L{
     }
 
     public static void v(String content){
+        if(mLAdapter == null){
+            return;
+        }
         if(mLAdapter.isDebug()){
             if(mLAdapter.isNeedOtherInfo()){
                 Log.v(mLAdapter.getTag(), getDescription() + content);
@@ -74,6 +77,73 @@ public class L{
             }
         }
     }
+
+    public static void e(boolean isNeedOtherInfo, String content){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            if(isNeedOtherInfo){
+                Log.e(mLAdapter.getTag(), getDescription() + content);
+            }else{
+                Log.e(mLAdapter.getTag(), content);
+            }
+        }
+    }
+
+    public static void i(boolean isNeedOtherInfo, String content){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            if(isNeedOtherInfo){
+                Log.i(mLAdapter.getTag(), getDescription() + content);
+            }else{
+                Log.i(mLAdapter.getTag(), content);
+            }
+        }
+    }
+
+    public static void d(boolean isNeedOtherInfo, String content){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            if(isNeedOtherInfo){
+                Log.d(mLAdapter.getTag(), getDescription() + content);
+            }else{
+                Log.d(mLAdapter.getTag(), content);
+            }
+        }
+    }
+
+    public static void v(boolean isNeedOtherInfo, String content){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            if(isNeedOtherInfo){
+                Log.v(mLAdapter.getTag(), getDescription() + content);
+            }else{
+                Log.v(mLAdapter.getTag(), content);
+            }
+        }
+    }
+
+    public static void w(boolean isNeedOtherInfo, String content){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            if(isNeedOtherInfo){
+                Log.w(mLAdapter.getTag(), getDescription() + content);
+            }else{
+                Log.w(mLAdapter.getTag(), content);
+            }
+        }
+    }
+
+
     public static void e(String tag, String content){
         if(mLAdapter == null){
             return;
@@ -114,6 +184,9 @@ public class L{
     }
 
     public static void v(String tag, String content){
+        if(mLAdapter == null){
+            return;
+        }
         if(mLAdapter.isDebug()){
             if(mLAdapter.isNeedOtherInfo()){
                 Log.v(tag, getDescription() + content);
