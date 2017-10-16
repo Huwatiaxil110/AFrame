@@ -387,7 +387,7 @@ public class RxJavaActivity extends AppCompatActivity{
         super.onDestroy();
 
         if(disposables != null){
-            disposables.dispose();
+            disposables.clear();
         }
     }
 }
