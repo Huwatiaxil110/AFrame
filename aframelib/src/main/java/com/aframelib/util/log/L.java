@@ -7,6 +7,8 @@ import android.util.Log;
  * Created by zc on 2017/7/4.
  */
 public class L{
+    private static final String LINE = "------------------------------------------------------------" +
+            "------------------------------------------------------------------------------------------------------------------------";
     private static LAdapter mLAdapter;
 
     public static void initLAdapter(LAdapter mLAdapter) {
@@ -206,6 +208,42 @@ public class L{
             }else{
                 Log.w(tag, content);
             }
+        }
+    }
+
+    public static void lineE(){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            Log.e(mLAdapter.getTag(), LINE);
+        }
+    }
+
+    public static void lineI(){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            Log.i(mLAdapter.getTag(), LINE);
+        }
+    }
+
+    public static void lineD(){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            Log.d(mLAdapter.getTag(), LINE);
+        }
+    }
+
+    public static void lineV(){
+        if(mLAdapter == null){
+            return;
+        }
+        if(mLAdapter.isDebug()){
+            Log.v(mLAdapter.getTag(), LINE);
         }
     }
 
