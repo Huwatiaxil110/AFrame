@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="false"
+    tools:context="com.aframe.calendar.CalendarActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:fitsSystemWindows="false"
+        android:layout_marginTop="50dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="false"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_bar_height"
+                android:background="#99000000"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="false"
+                app:layout_collapseMode="pin"
+                android:background="#44ffffff"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_week1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="false"
+                android:layout_marginTop="50dp"
+                app:layout_collapseMode="pin"
+                android:background="#66ffffff"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_week2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="false"
+                android:layout_marginTop="100dp"
+                app:layout_collapseMode="pin"
+                android:background="#88ffffff"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_week3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="false"
+                android:layout_marginTop="150dp"
+                app:layout_collapseMode="pin"
+                android:background="#aaffffff"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_scrolling" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:fitsSystemWindows="false"
+        android:background="#000000"></LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

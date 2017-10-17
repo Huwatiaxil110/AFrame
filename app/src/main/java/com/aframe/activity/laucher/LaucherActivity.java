@@ -12,6 +12,7 @@ import com.aframe.activity.rxjava.RxJavaActivity;
 import com.aframe.activity.material.MDLaucherActivity;
 import com.aframe.activity.toast.ToastActivity;
 import com.aframe.adapter.LaucherAdapter;
+import com.aframe.calendar.CalendarActivity;
 import com.aframelib.util.log.L;
 import com.aframelib.util.toast.T;
 
@@ -23,6 +24,7 @@ public class LaucherActivity extends AppCompatActivity {
     private static final int CODE_TOAST = 1;
     private static final int CODE_METARIAL_DESIGN = 2;
     private static final int CODE_RXJAVA = 3;
+    private static final int CODE_CALENDAR = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,9 @@ public class LaucherActivity extends AppCompatActivity {
                     case CODE_RXJAVA:
                         startActivity(new Intent(LaucherActivity.this, RxJavaActivity.class));
                         break;
-
+                    case CODE_CALENDAR:
+                        startActivity(new Intent(LaucherActivity.this, CalendarActivity.class));
+                        break;
                 }
             }
         });
@@ -69,6 +73,7 @@ public class LaucherActivity extends AppCompatActivity {
         DESCRIPTIONS.add("测试Toast工具");
         DESCRIPTIONS.add("Metarial Design风格");
         DESCRIPTIONS.add("RxJava用例");
+        DESCRIPTIONS.add("日历用例");
     }
 
     /**

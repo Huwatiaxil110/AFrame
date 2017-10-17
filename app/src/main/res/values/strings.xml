@@ -101,4 +101,5 @@
     <string name="title_md_laucher">MD风格</string>
     <string name="title_toast">Toast用例</string>
     <string name="title_rxjava_usage">RxJava用例</string>
+    <string name="title_activity_calendar">日历用例</string>
 </resources>

@@ -33,6 +33,9 @@
         <activity
             android:name=".activity.rxjava.RxJavaActivity"
             android:label="@string/title_rxjava_usage"/>
+        <activity android:name=".calendar.CalendarActivity"
+            android:label="@string/title_activity_calendar"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 
